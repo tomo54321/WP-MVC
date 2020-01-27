@@ -8,9 +8,13 @@ Currently, cloning this repo won't work please follow the below steps to get set
  - Clone this repo to a `wpmvc` folder inside the `inc` folder you just created.
  - Move the `Helper` file into the `inc` folder
  - Inside of the `inc` folder create the following folders: `config`, `Controllers`, `Emails`, `Models` and `Views`
- - Inside of the `config` folder create a `mail.php` file and paste the [email config](#Email-Config-File) into it and fill in your email server credentials.
+ - Inside of the `config` folder create a `mail.php` file and paste the [email config](#Email-Config-File) into it and fill in your email server credentials or run the `php Helper config:mail` to generate the file.
  - You're ready to begin using!
  
+ ## Using Helper CLI
+ The Helper CLI can be used in the `inc` folder by running the following command `php Helper`. The helper is able to generate Models, Controllers, Email Templates, Wordpress Pages/Categories/Archives and more... 
+ 
+ Run `php Helper` to view a list of commands you can use along with how you can use them.
  
  ## Email Config File
  ```php
@@ -47,13 +51,6 @@ $config = array(
         "Username"=>"",                     //SMTP Username
         "Password"=>"",                     //SMTP Password
         "Port"=>587,                        //TCP port to connect to
-        "SMTPOptions"=>array(
-            'ssl' => array(
-            'verify_peer' => false,
-            'verify_peer_name' => false,
-            'allow_self_signed' => true
-          )
-        )
     ),
 
     /**
