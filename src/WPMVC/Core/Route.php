@@ -3,8 +3,6 @@ namespace WPMVC\Core;
 /**
  * Wordpress MVC Theme addon
  * 
- * @author Tom Reeve <thomas.reeve@richardsonsgroup.net>
- * @copyright (c) 2020 Richardsons Leisure Ltd.
  */
 
 use WPMVC\Core\Request\Request;
