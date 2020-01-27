@@ -1,7 +1,7 @@
 ### Wordpress MVC Theme Framework
 This project probably shouldn't be used in production just yet.
 
-If you would like to add to this please feel free to fork this repository and submit a pull request :) 
+If you would like to add / maintain the framework please feel free to fork this repository and submit a pull request :) 
 
 ## How to setup
 Currently, cloning this repo won't work please follow the below steps to get setup.
