@@ -16,6 +16,102 @@ Currently, cloning this repo won't work please follow the below steps to get set
  
  Run `php Helper` to view a list of commands you can use along with how you can use them.
  
+ ## Routing
+ To begin creating your first route open the page of choice ex. `page.php` in your theme directory.
+ 
+ Then be sure to first of include the framework into the page, you can do this by putting the following in at the top of the page under your `<?php` tag `include_once("inc/wpmvc/run.php");`.
+ 
+ Next you'll need to tell `php` to use the WPMVC Route class by putting underneath the include statement, `use WPMVC\Core\Route;`
+ 
+ Then there are two functions to load in required Models and Emails (if you use them), this can by done with the following:`load_models(["ModelFileNameWithoutPHP"]);` and `load_emails(["EmailFileNameWithoutPHP"]);`
+ 
+ Then finally implement your route: `Route::get("SomeController", "show")` the usage is `Route::get("ControllerClassName", "Function in Controller")`.
+ 
+ ***Route only currently supports `get` and `post` functions.***
+ 
+ Your page should now look something like this:
+ ```php
+ <?php
+ include_once("inc/wpmvc/run.php");
+ use WPMVC\Core\Route;
+
+ load_models(["User"]);//Load models used
+ load_emails(["UserSignUpEmail"]);//Load emails used
+
+ Route::get("SomeController", "show");
+ Route::post("SomeController", "update");
+ ```
+ 
+ ## Controllers
+ Controllers are very easy to use, all functions called from `Route` will pass a `Request` object with request headers and parameters.
+ To generate a controller simply run `php Helper make:controller [ControllerName]`
+ Controllers **MUST** extend `WPMVC\Core\Controller`.
+ 
+ To display a view simply return `$this->view("view path")`, replace slashes(***/***) with dots(***.***).
+
+ 
+ ## Models
+ Generate a model using `php Helper make:model [name]`
+ 
+ The table name defaults to the Models class name however this can be overriden with the `get_table` function like:
+ ```php
+ /**
+ * Override table name
+ */
+public static function get_table(){
+ return "TableName";//Tables name
+}
+ ```
+ 
+ If you don't have a primary key in your table you will need to use the `primary_key` function and return null. We will automatically find the primary key or you can return the columns name as a `string` an example:
+ 
+ ```php
+/**
+* Override the find function's row
+* Required if no primary key is present in table
+*/
+protected static function primary_key(){
+ return "id";//Column Name
+}
+ ```
+ 
+ If you would like to have a `created_at` and `updated_at` column in your table you may find that the `Timestamps` trait will help.
+ Begin by adding this to your model, `use WPMVC\Database\Traits\Timestamps;` then within the model's class simply add:
+ ```php
+ use Timestamps;//Auto fill the 'created_at' and 'updated_at' column
+ ```
+ 
+ An example model using timestamps looks like this:
+ 
+ ```php
+ <?php
+namespace App;
+
+use WPMVC\Database\Model;
+use WPMVC\Database\Traits\Timestamps;
+class Testing extends Model{
+
+    use Timestamps;//Auto fill the 'created_at' and 'updated_at' column
+    
+
+    /**
+     * Override table name
+     */
+    public static function get_table(){
+        return "TableName";
+    }
+
+    /**
+     * Override the find function's row
+     * Required if no primary key is present in table
+     */
+    protected static function primary_key(){
+        return "id";
+    }
+
+}
+ ```
+ 
  ## Email Config File
  ```php
  <?php
