@@ -4,8 +4,6 @@ namespace WPMVC\Core\Request;
  * Wordpress MVC Theme addon
  * Request Object
  * 
- * @author Tom Reeve <thomas.reeve@richardsonsgroup.net>
- * @copyright (c) 2020 Richardsons Leisure Ltd.
  */
 class Request{
 
