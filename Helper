@@ -1,0 +1,4 @@
+<?php
+$_DIR = __DIR__;
+$_WPMVCFOLDER = "wpmvc";
+include_once(__DIR__."/wpmvc/CLI/Entry.php");

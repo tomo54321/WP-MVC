@@ -1,0 +1,21 @@
+{
+    "name": "richardsonsleisureltd/wpmvc",
+    "description": "Allows you to use MVC within a Wordpress theme",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Tom Reeve",
+            "email": "thomas.reeve@richardsonsgroup.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2.10",
+        "phpmailer/phpmailer": "dev-master"
+    },
+    "autoload":{
+        "psr-0":{
+            "WPMVC\\":"src/"
+        }
+    }
+}
