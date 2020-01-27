@@ -2,8 +2,7 @@
 /**
  * Wordpress MVC Theme addon
  * 
- * @author Tom Reeve <thomas.reeve@richardsonsgroup.net>
- * @copyright (c) 2020 Richardsons Leisure Ltd.
+ * @author Tom Reeve
 */
 require_once __DIR__ . '/../vendor/autoload.php';
 use WPMVC\Core\Bootstrap;
