@@ -6,7 +6,7 @@ if(!isset($argv[2]) || $argv[2] ==""){
 $controller_name=$argv[2];
 
 if(!endsWith( strtolower($controller_name) , "controller")){//Controller name doesn't end in controller?
-    $controller_name.="Controller";//Well add it for best practise.
+    $controller_name.="Controller";//We'll add it for best practise.
 }
 
 if (!file_exists($_DIR."/Controllers")) {
